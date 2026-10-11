@@ -55,6 +55,8 @@
   const privacyKey = 'dragonfruit-privacy-v1';
   const banner = document.querySelector('[data-cookie-banner]');
   const settings = [...document.querySelectorAll('[data-privacy-settings]')];
+  let chatState = 'loading';
+  let chatTimer;
   let returnFocus;
   let choice;
   try { choice = localStorage.getItem(privacyKey); } catch { /* No optional scripts by default. */ }
@@ -69,21 +71,47 @@
   function loadHubSpot() {
     if (document.getElementById('hs-script-loader')) return;
     clearHubSpotCookies(['__hs_do_not_track']);
+    chatState = 'loading';
+    updateChatStatus();
+    // API readiness alone does not mean a chatflow has rendered.
+    function onChatReady() {
+      if (choice !== 'optional') return;
+      const conversations = window.HubSpotConversations;
+      function onWidgetLoaded() {
+        if (choice !== 'optional') return;
+        clearTimeout(chatTimer);
+        chatState = 'ready';
+        updateChatStatus();
+      }
+      conversations.on('widgetLoaded', onWidgetLoaded);
+      if (conversations.widget.status().loaded) onWidgetLoaded();
+    }
+    window.hsConversationsOnReady = [...(window.hsConversationsOnReady || []), onChatReady];
     window.hsConversationsSettings = { enableWidgetCookieBanner: true };
+    chatTimer = setTimeout(() => {
+      if (choice === 'optional' && chatState !== 'ready') {
+        chatState = 'unavailable';
+        updateChatStatus();
+      }
+    }, 15000);
     const script = document.createElement('script');
     script.id = 'hs-script-loader'; script.async = true;
     script.src = 'https://js-na3.hs-scripts.com/343398568.js';
     script.addEventListener('error', () => {
-      document.querySelectorAll('[data-chat-status]').forEach(status => {
-        status.textContent = 'Chat could not load. Please use email or book a consultation.';
-      });
+      clearTimeout(chatTimer);
+      chatState = 'unavailable';
+      updateChatStatus();
     });
     document.body.append(script);
   }
   function updateChatStatus() {
     document.querySelectorAll('[data-chat-status]').forEach(status => {
       status.textContent = choice === 'optional'
-        ? 'Chat is enabled. Reply times vary; email or booking are available for project enquiries.'
+        ? (chatState === 'ready'
+          ? 'Chat is available. Reply times vary; email or booking are available for project enquiries.'
+          : chatState === 'unavailable'
+            ? 'Chat is not available right now. Please use email or book a consultation.'
+            : 'Loading chat. You can also use email or book a consultation.')
         : 'To use chat, allow chat and analytics in Privacy settings. Email and booking are always available.';
     });
   }
