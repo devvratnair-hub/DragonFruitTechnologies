@@ -33,6 +33,13 @@
     .service-panel p{margin:0;color:#555b54}
     .service-next{padding:60px 0;background:#eee6df}
     .service-next h2{font-family:"Cormorant Garamond",Georgia,serif;font-size:2.5rem;margin:0 0 15px}
+    .service-method{padding:58px 0;background:#f6f4ef}
+    .service-method ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;list-style:none;padding:0;margin:28px 0 0}
+    .service-method li{background:#fff;border:1px solid rgba(32,33,31,.13);border-radius:12px;padding:24px}
+    .service-method li strong{display:block;color:#7c2f3a;margin-bottom:8px}
+    .service-contact-options{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px}
+    .service-contact-options a{text-decoration:underline;text-underline-offset:4px}
+    @media(max-width:720px){.service-method ol{grid-template-columns:1fr}}
     .service-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
     .service-links a{border-bottom:1px solid #7c2f3a;color:#7c2f3a;font-weight:600}
     .service-header{display:flex;align-items:center;justify-content:space-between;padding:12px clamp(18px,4vw,56px);background:#f6f4ef;border-bottom:1px solid #ddd;gap:15px;flex-wrap:wrap}
@@ -58,10 +65,23 @@
     <h2>How we support your team</h2><p class="overview">Dragonfruit Technologies works with business and technology teams to structure HRIS implementation activities, clarify employee lifecycle workflows, and support adoption through testing, training, and delivery governance.</p>
     <div class="service-grid-custom"><article class="service-panel"><h3>Discovery and workflow design</h3><p>Map current and future HR processes, approvals, ownership, and measurable acceptance criteria.</p></article><article class="service-panel"><h3>Implementation coordination</h3><p>Support stakeholders, vendors, delivery plans, dependencies, and change decisions throughout implementation.</p></article><article class="service-panel"><h3>Validation and adoption</h3><p>Plan end-to-end scenarios, support user acceptance testing, and prepare practical training and handover materials.</p></article></div>
   </div></section>
+  <section class="service-method" aria-labelledby="method-heading"><div class="service-container">
+    <h2 id="method-heading">A practical, transparent approach</h2>
+    <p>Every engagement starts by clarifying scope, responsibilities, and the decisions that matter most. The level of support is tailored to your project and the specialist expertise it requires.</p>
+    <ol>
+      <li><strong>01 · Discover</strong>Understand business priorities, workflows, stakeholders, constraints, and success criteria.</li>
+      <li><strong>02 · Align</strong>Make design decisions, dependencies, risks, and ownership visible to the delivery team.</li>
+      <li><strong>03 · Validate</strong>Review evidence, testing outcomes, readiness, and practical next steps with stakeholders.</li>
+    </ol>
+  </div></section>
   <section class="service-next"><div class="service-container">
     <h2>Exploring an HRIS implementation or improving an existing rollout?</h2>
     <p>Let's clarify the scope, key dependencies, and the support that would be most useful for your team.</p>
     <div class="service-actions"><a class="service-action" href="https://calendly.com/devvrat-nair/30min" target="_blank" rel="noopener noreferrer">Schedule a conversation</a><a class="service-action secondary" href="mailto:devvrat@dragonfruittechnologies.com">Email us</a></div>
+    <div class="service-contact-options" aria-label="Direct contact options">
+      <a href="mailto:devvrat@dragonfruittechnologies.com">devvrat@dragonfruittechnologies.com</a>
+      <a href="tel:+14038616508">403-861-6508</a>
+    </div>
     <div class="service-links" aria-label="Other services"><a href="dayforce-consulting.html">Dayforce Consulting</a><a href="hcm-solution-architecture.html">HCM Solution Architecture</a><a href="payroll-benefits-technology.html">Payroll &amp; Benefits Technology</a></div>
   </div></section>
 </main>
