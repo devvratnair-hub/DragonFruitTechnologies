@@ -815,3 +815,10 @@ h3 {
     display: grid;
   }
 }
+
+/* Business social links: readable and touch-friendly across screen sizes. */
+.social-links{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin:0 0 18px}
+.social-links a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:7px 11px;border:1px solid rgba(168,138,69,.45);border-radius:999px;font-size:.9rem;font-weight:600;text-decoration:none}
+.social-links a:hover{border-color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.social-symbol{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;font-weight:800;background:rgba(168,138,69,.18)}
+@media(max-width:600px){.social-links{gap:8px}.social-links a{font-size:.85rem}}
