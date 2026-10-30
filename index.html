@@ -262,6 +262,7 @@
   .story p{font-size:17.5px;line-height:1.75;color:var(--muted)}
   .story p.open{font-family:var(--display);font-weight:600;font-size:clamp(24px,2.6vw,32px);line-height:1.25;letter-spacing:-.02em;color:var(--seed)}
   .story p b{color:var(--seed);font-weight:600}
+  .story p.lead-q{font-family:var(--display);font-weight:600;font-size:clamp(20px,2vw,24px);line-height:1.4;letter-spacing:-.01em;color:var(--seed);padding:4px 0 4px 20px;border-left:3px solid var(--pitaya)}
   .values{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 4px}
   .values span{font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;background:var(--seed);color:var(--flesh)}
   .f-lower{display:grid;gap:40px;margin-top:64px}
@@ -382,7 +383,7 @@
     </div>
     <div class="proof band" style="padding-left:0;padding-right:0">
       <div class="wrap">
-        <div><b>16+</b><span>years across HR, payroll and HR technology</span></div>
+        <div><b>16+</b><span>years across HR, Payroll and HR Technology</span></div>
         <div><b>9+</b><span>years delivering Dayforce and ADP Workforce Now</span></div>
         <div><b>4</b><span>vantage points: vendor, platform peer, enterprise program, practitioner</span></div>
         <div><b class="word">Reliability Status</b><span>Government of Canada, active</span></div>
@@ -396,7 +397,7 @@
       <header class="sec-head">
         <span class="label">The Dragonfruit difference</span>
         <h2 id="vantage-title">Four vantage points. One accountable person.</h2>
-        <p>Most consultants know an HCM platform from one side. I learned Dayforce inside the vendor, delivered its closest competitor, worked it at enterprise scale on a large public-sector transformation, and spent years doing the HR, recruitment and payroll work these systems exist to serve.</p>
+        <p>Many consultants know an HCM platform from one side. I've had the chance to learn Dayforce from four. I learned it inside the vendor, delivered its closest competitor, worked it at enterprise scale on a large public-sector transformation, and spent years doing the HR, Recruitment and Payroll work these systems exist to serve.</p>
       </header>
       <div class="vantage">
         <article class="vp">
@@ -409,7 +410,7 @@
           <span class="when">2021 – 2024</span>
           <h3>The platform peer</h3>
           <span class="where">ADP Canada · Workforce Now · Calgary</span>
-          <p>Senior Implementation Specialist leading full-lifecycle HRIS and payroll implementations across industries. Configured Payroll, Benefits, Core HR and Talent, ran user-access audits and trained administrators.</p>
+          <p>Senior Implementation Specialist leading full-lifecycle HRIS and Payroll implementations across industries. Configured Payroll, Benefits, Core HR and Talent, ran user-access audits and trained administrators.</p>
         </article>
         <article class="vp">
           <span class="when">2024 – 2026</span>
@@ -420,8 +421,8 @@
         <article class="vp">
           <span class="when">2009 – 2015</span>
           <h3>The practitioner</h3>
-          <span class="where">HR and recruitment · London and Mumbai</span>
-          <p>HR Manager in healthcare staffing, HR operations at EY India, recruitment and training at Panoramic. I design for the HR and payroll teams who run the system on Monday morning, not just for go-live day.</p>
+          <span class="where">HR and Recruitment · London and Mumbai</span>
+          <p>HR Manager in healthcare staffing, HR Operations at EY India, Recruitment and Training at Panoramic. I design for the HR and Payroll teams who run the system on Monday morning, not just for go-live day.</p>
         </article>
       </div>
     </div>
@@ -437,12 +438,12 @@
         <p class="big">Six questions I bring to every Dayforce design, and where I have used them. Clients stay unnamed; the thinking doesn't.</p>
       </div>
       <div class="think">
-        <article class="tq"><span class="num">01</span><h3>Start from Monday morning</h3><p class="ask">Who runs this after go-live, and what will they do when it breaks?</p><div class="ex"><span>In practice · ADP Workforce Now</span><p>I configured Core HR, Benefits and Talent, then trained the administrators who would own them. Every design choice met the people who would live with it.</p></div></article>
+        <article class="tq"><span class="num">01</span><h3>Start from Monday morning</h3><p class="ask">Who runs this after go-live, and what will they need to run it with confidence?</p><div class="ex"><span>In practice · ADP Workforce Now</span><p>I configured Core HR, Benefits and Talent, then trained the administrators who would own them. Every design choice met the people who would live with it.</p></div></article>
         <article class="tq"><span class="num">02</span><h3>Find the source of truth</h3><p class="ask">Which system owns this record, and at which moment?</p><div class="ex"><span>In practice · Public-sector Dayforce</span><p>Candidates and employees lived in two separate Dayforce environments. I specified how their records link and the import rationale that keeps both in step.</p></div></article>
         <article class="tq"><span class="num">03</span><h3>Model the rules before the screens</h3><p class="ask">What does the policy actually say, including its exceptions?</p><div class="ex"><span>In practice · Public-sector Dayforce</span><p>Priority entitlements decide who must be considered first. I configured those rules in Recruiting so entitled candidates are handled correctly from requisition onward.</p></div></article>
         <article class="tq"><span class="num">04</span><h3>Map authority, then build the workflow</h3><p class="ask">Who holds the authority to approve, and at which level?</p><div class="ex"><span>In practice · Public-sector Dayforce</span><p>I designed and built approval workflows that route every Letter of Offer to the correct delegated approver, so the system follows the delegation, not the org chart.</p></div></article>
         <article class="tq"><span class="num">05</span><h3>Design for the exception</h3><p class="ask">What happens when this isn't the happy path?</p><div class="ex"><span>In practice · Public-sector Dayforce</span><p>Acting appointments are temporary by nature. I designed the data and the end-to-end processing so they start, run and end cleanly, a pattern standard configurations rarely anticipate.</p></div></article>
-        <article class="tq"><span class="num">06</span><h3>Separate confirmed from assumed</h3><p class="ask">What have we verified, and what are we still hoping is true?</p><div class="ex"><span>In practice · Public-sector Dayforce</span><p>I staged and validated conversion data before loads and triaged defects to their real root cause: configuration, data or design. Readiness decisions rested on evidence.</p></div></article>
+        <article class="tq"><span class="num">06</span><h3>Separate confirmed from assumed</h3><p class="ask">What have we verified, and what still needs to be confirmed?</p><div class="ex"><span>In practice · Public-sector Dayforce</span><p>I staged and validated conversion data before loads and triaged defects to their real root cause: configuration, data or design. Readiness decisions rested on evidence.</p></div></article>
       </div>
     </div>
   </section>
@@ -452,7 +453,7 @@
       <header class="sec-head">
         <span class="label">What Dragonfruit delivers</span>
         <h2 id="services-title">From design decisions to a stable Monday morning.</h2>
-        <p>Dayforce first, with ADP Workforce Now delivery experience. Engaged directly by HR and payroll leaders, or as a named specialist inside a consulting firm's or staffing partner's team.</p>
+        <p>Dayforce first, with ADP Workforce Now delivery experience. Engaged directly by HR and Payroll leaders, or as a named specialist inside a consulting firm's or staffing partner's team.</p>
       </header>
       <div class="svc-list">
         <article class="svc">
@@ -478,7 +479,7 @@
         <article class="svc">
           <span class="roman">v</span>
           <h3>Stabilize and optimize</h3>
-          <div><p>Health checks, post-go-live remediation, release-impact assessment and practical fixes for implementations that are struggling.</p><div class="chips"><span class="chip">Health checks</span><span class="chip">Release impact</span><span class="chip">Remediation</span></div></div>
+          <div><p>Health checks, post-go-live remediation, release-impact assessment and practical improvements that help an implementation reach its full potential.</p><div class="chips"><span class="chip">Health checks</span><span class="chip">Release impact</span><span class="chip">Remediation</span></div></div>
         </article>
       </div>
       <div class="focus-note">
@@ -492,7 +493,7 @@
     <div class="wrap">
       <header class="sec-head">
         <span class="label">Case in focus</span>
-        <h2 id="work-title">Where Dayforce Talent gets hard, and what I built.</h2>
+        <h2 id="work-title">Where Dayforce Talent gets complex, and what I built.</h2>
         <p>On a multi-year public-sector Dayforce transformation I have worked both sides of delivery: data staging, testing and solution validation with EY, then implementing Recruiting, Onboarding, Learning and Qualifications through a Deloitte engagement via Brunel. The complexity below is work I owned.</p>
       </header>
       <div class="case-meta"><span>Large public-sector Dayforce implementation</span><span>Client confidential</span><span>2024 – 2026</span></div>
@@ -500,14 +501,14 @@
         <div class="cg"><span class="seeds"><i></i></span><h3>Two environments, one person</h3><p>Separate Dayforce environments for internal employees and external candidates. I reviewed and specified how records link across them, and the import rationale that keeps them in step.</p></div>
         <div class="cg"><span class="seeds"><i></i><i></i></span><h3>Priority entitlements in Recruiting</h3><p>Configured public-sector priority entitlement rules so entitled candidates are handled correctly from requisition onward.</p></div>
         <div class="cg"><span class="seeds"><i></i><i></i><i></i></span><h3>Offer routing that respects delegation</h3><p>Designed and built approval workflows that route each Letter of Offer to the correct delegated approver.</p></div>
-        <div class="cg"><span class="seeds"><i></i><i></i><i></i><i></i></span><h3>Requisition-to-hire integrity</h3><p>Requisitions, notes, references and recruiting items through to hire. Resolved position-data issues and triaged hire and employee-update errors between Recruiting and HR.</p></div>
+        <div class="cg"><span class="seeds"><i></i><i></i><i></i><i></i></span><h3>Requisition-to-hire integrity</h3><p>Requisitions, notes, references and Recruiting items through to hire. Resolved position-data questions and kept hires and employee updates flowing smoothly between Recruiting and HR.</p></div>
         <div class="cg"><span class="seeds"><i></i></span><h3>Acting appointments</h3><p>Data design and end-to-end processing for acting, or temporary, appointments: a public-sector pattern standard configurations rarely anticipate.</p></div>
-        <div class="cg"><span class="seeds"><i></i><i></i></span><h3>Learning and Qualifications</h3><p>Configuration, role-based access and testing, aligned with the onboarding and recruiting processes around them.</p></div>
+        <div class="cg"><span class="seeds"><i></i><i></i></span><h3>Learning and Qualifications</h3><p>Configuration, role-based access and testing, aligned with the Onboarding and Recruiting processes around them.</p></div>
         <div class="cg"><span class="seeds"><i></i><i></i><i></i></span><h3>Data staging and validation</h3><p>Staged and validated conversion data, executed SIT, UAT and regression testing, and validated the solution against requirements before readiness decisions.</p></div>
         <div class="cg"><span class="seeds"><i></i><i></i><i></i><i></i></span><h3>Delivery governance</h3><p>Design-option reviews, business design questions, user stories in Azure DevOps and Jira, remediation of QA findings, and coordination with integration teams.</p></div>
       </div>
       <div class="why">
-        <p>Most Dayforce Talent designs work on the happy path. <span>Entitlements, delegated approvals, acting appointments and separate candidate and employee populations are where projects slip. I have already worked through them.</span></p>
+        <p>The happy path is the easy part of Dayforce Talent. <span>Entitlements, delegated approvals, acting appointments and separate candidate and employee populations are where the real work is, and I have already worked through them.</span></p>
       </div>
     </div>
   </section>
@@ -518,7 +519,7 @@
         <header class="sec-head" style="margin-bottom:0">
           <span class="label">Module depth</span>
           <h2 id="depth-title">20 Dayforce modules, rated honestly.</h2>
-          <p>A self-assessment, so a partner can match me to a requirement precisely, including the two areas I am still growing.</p>
+          <p>A self-assessment, so a partner can match me to a requirement precisely, including the two areas I am actively growing.</p>
         </header>
         <div class="legend" role="group" aria-label="Highlight a level">
           <button type="button" class="tier-btn" data-tier="all" aria-pressed="true">All</button>
@@ -541,7 +542,7 @@
           <ul><li>Workforce Management</li></ul>
         </section>
       </div>
-      <p class="depth-note">Self-assessed. Exposure to a module on a program does not mean equal hands-on configuration depth in every area.</p>
+      <p class="depth-note">Self-assessed, and always confirmed against your requirements before an engagement begins.</p>
     </div>
   </section>
 
@@ -552,11 +553,11 @@
         <h2 id="approach-title">From discovery to a confident go-live.</h2>
       </header>
       <ol class="phases">
-        <li class="ph"><span class="n">01</span><h3>Discover</h3><span class="verb">Understand</span><p>Current-state review, requirements, pain points and clear success criteria.</p></li>
+        <li class="ph"><span class="n">01</span><h3>Discover</h3><span class="verb">Understand</span><p>Current-state review, requirements, priorities and clear success criteria.</p></li>
         <li class="ph"><span class="n">02</span><h3>Design</h3><span class="verb">Architect</span><p>Solution design, configuration workbooks, security model and documented decisions.</p></li>
         <li class="ph"><span class="n">03</span><h3>Build</h3><span class="verb">Configure</span><p>Configuration, workflows, data conversion and imports.</p></li>
         <li class="ph"><span class="n">04</span><h3>Test</h3><span class="verb">Validate</span><p>SIT, UAT, regression and end-to-end testing, with defects triaged to root cause.</p></li>
-        <li class="ph"><span class="n">05</span><h3>Deploy</h3><span class="verb">Launch</span><p>Training, cutover planning, readiness checks and payroll parallel support.</p></li>
+        <li class="ph"><span class="n">05</span><h3>Deploy</h3><span class="verb">Launch</span><p>Training, cutover planning, readiness checks and Payroll parallel support.</p></li>
         <li class="ph"><span class="n">06</span><h3>Stabilize</h3><span class="verb">Optimize</span><p>Hypercare, health checks and clean knowledge transfer to your team.</p></li>
       </ol>
       <div class="throughout">
@@ -571,11 +572,11 @@
       <div>
         <span class="label">How I work</span>
         <h2 id="how-title" style="font-size:clamp(34px,4.6vw,56px);margin:16px 0 40px">Four commitments that hold under pressure.</h2>
-        <blockquote>I'd rather tell a client what's still an assumption today than explain a payroll surprise after go-live.<footer>Devvrat Nair · Founder</footer></blockquote>
+        <blockquote>When every assumption is named early, go-live becomes a day of confidence.<footer>Devvrat Nair · Founder</footer></blockquote>
       </div>
       <div class="commit-list">
-        <div><h3>Confirmed or assumed, never blurred</h3><p>I separate verified system behaviour from assumptions that still need validation, so decisions rest on facts, not optimism.</p></div>
-        <div><h3>Risks surface early</h3><p>Issues are cheapest the day they appear. I raise them then, along with a recommended way forward.</p></div>
+        <div><h3>Confirmed or assumed, never blurred</h3><p>I separate verified system behaviour from assumptions that still need validation, so every decision rests on verified facts.</p></div>
+        <div><h3>Risks surface early</h3><p>The best time to address a risk is the day it appears. I raise it then, along with a recommended way forward.</p></div>
         <div><h3>Complexity, made decidable</h3><p>I turn ambiguous requirements and competing stakeholder views into clear options decision-makers can act on.</p></div>
         <div><h3>Finish what I commit to</h3><p>Dependability is the standard I hold myself to: prepared for every session, responsive, and on time.</p></div>
       </div>
@@ -591,7 +592,7 @@
           <h2 id="fruit-title">Bold outside. Calm, precise and nourishing inside.</h2>
         </header>
         <div class="traits">
-          <div class="trait"><h3>Rooted in grit</h3><div><span class="fact">It grows on a climbing cactus and thrives where other plants dry out.</span><p>Steady when a program gets hard, and still delivering after the plan changes.</p></div></div>
+          <div class="trait"><h3>Rooted in grit</h3><div><span class="fact">It grows on a climbing cactus and thrives where other plants dry out.</span><p>Steady through every phase of a program, and adaptable when the plan evolves.</p></div></div>
           <div class="trait"><h3>Rare by nature</h3><div><span class="fact">Its flower opens at night, often for a single night.</span><p>A rare combination: vendor, competitor, Big Four program and HR practitioner in one person.</p></div></div>
           <div class="trait"><h3>Fierce by design</h3><div><span class="fact">Vivid skin and flame-like scales you notice from across the room.</span><p>Direct about risk, plain about what is confirmed and what is still an assumption.</p></div></div>
           <div class="trait"><h3>Flawless within</h3><div><span class="fact">Inside: calm white flesh, hundreds of seeds, fibre, vitamin C and magnesium.</span><p>Details in their place, data validated, tests traced, and documentation that leaves your team stronger.</p></div></div>
@@ -611,12 +612,14 @@
         <div>
           <span class="label">Meet the founder</span>
           <div class="story" style="margin-top:18px">
-            <p class="open">I have spent more than sixteen years on the people side of work: first doing HR, recruitment and training, then building the systems HR and payroll teams depend on.</p>
-            <p>My career began in Mumbai in recruitment and training, and took me to London as an HR Manager in healthcare staffing. That is where I learned what a hiring process feels like from the inside: the paperwork, the deadlines, and the candidate waiting on an answer.</p>
-            <p>In Canada I studied HR again at the University of Winnipeg and joined <b>Ceridian in 2017</b>, learning Dayforce from inside the vendor. <b>ADP</b> taught me the competing platform from the other side. <b>EY and Deloitte</b> then put me on a large public-sector Dayforce transformation, where the rules are strict and the edge cases are the job.</p>
-            <p>I think in systems, but I design for people. Before I configure anything I want to know who owns the record, what the policy says when it bends, and how someone will fix it on a busy Friday. I would rather name an assumption today than explain a payroll surprise after go-live.</p>
-            <p>I built Dragonfruit Technologies on two commitments I won't trade: <b>telling clients the truth</b>, including what is still unverified, and <b>finishing what I commit to</b>. Behind every requisition and every pay cheque is a person, and that is why this work matters to me.</p>
-            <div class="values" aria-label="What I bring"><span>Honest by default</span><span>Calm under pressure</span><span>Curious about the edge case</span><span>Accountable end to end</span></div>
+            <p class="open">My journey began in Mumbai, in the BPO industry. That is where I discovered where my real passion lay: in people, and in how organizations find and grow them.</p>
+            <p>I moved into <b>Talent Acquisition and Talent Development</b> and spent several years doing that work. Wanting a wider view of the world, I went to the UK for my MBA in Human Resource Management, then joined a healthcare recruiting agency in London as HR Manager, where I learned the legal and compliance side of HR first-hand.</p>
+            <p>Canada came unexpectedly. At the University of Winnipeg I completed a post-graduate HR program that deepened my grounding in Talent Acquisition, Talent Management and Talent Development. Then I was given the opportunity to join <b>Ceridian, now Dayforce</b>, in 2017.</p>
+            <p>Moving from functional to technical work was the biggest stretch of my career, and I embraced it fully. Every role since, at <b>ADP</b>, then with <b>EY and Deloitte</b> on a large public-sector Dayforce transformation, taught me what technology consulting really is, and where to keep growing.</p>
+            <p class="lead-q">Those years taught me what leadership is. It isn't a designation. It is owning your work, showing up when it matters most, voicing risks early, championing change when it's needed, and standing by your values as a professional and as a human being.</p>
+            <p>Life has taught me through its highs and lows, professionally and personally, and those lessons inspired me to start Dragonfruit Technologies. I want to build a culture of collaboration, where people are free to speak, are backed and believed in, and are given respect where it is due, and where people's potential is nurtured and celebrated.</p>
+            <p>I believe change starts with one person. I intend to be that person, and to help the teams I work with do the same.</p>
+            <div class="values" aria-label="What I stand for"><span>Own your work</span><span>Voice risks early</span><span>Back your people</span><span>Respect where it's due</span></div>
           </div>
         </div>
       </div>
@@ -630,7 +633,8 @@
           <li><span class="y">2021 – 2024</span><div><b>Senior Implementation Specialist, Workforce Now</b><span>ADP Canada, Calgary</span></div></li>
           <li><span class="y">2019 – 2021</span><div><b>Associate Technical Consultant</b><span>Ceridian (now Dayforce), Winnipeg</span></div></li>
           <li><span class="y">2017 – 2019</span><div><b>Associate Implementation Consultant</b><span>Ceridian (now Dayforce), Winnipeg</span></div></li>
-          <li><span class="y">2009 – 2015</span><div><b>HR, recruitment and training roles</b><span>iSpecialist (UK) · EY India · Panoramic</span></div></li>
+          <li><span class="y">2009 – 2015</span><div><b>HR, Talent Acquisition and Talent Development roles</b><span>iSpecialist (UK) · EY India · Panoramic</span></div></li>
+          <li><span class="y">Early career</span><div><b>BPO industry</b><span>Mumbai</span></div></li>
         </ol>
         </div>
         <div>
@@ -657,9 +661,9 @@
         <h2 id="engage-title">Simple to engage. Easy to trust.</h2>
       </header>
       <div class="engage">
-        <article class="eg"><h3>Who I work with</h3><ul><li>Consulting firms and systems integrators that need Dayforce Talent capacity</li><li>Staffing partners placing senior Dayforce consultants</li><li>HR and payroll leaders running or rescuing an implementation</li></ul></article>
+        <article class="eg"><h3>Who I work with</h3><ul><li>Consulting firms and systems integrators that need Dayforce Talent capacity</li><li>Staffing partners placing senior Dayforce consultants</li><li>HR and Payroll leaders running or strengthening an implementation</li></ul></article>
         <article class="eg"><h3>How we engage</h3><p>As an independent business, under a Master Services Agreement with a Statement of Work for each engagement. Priced hourly, as a fixed fee per phase, or as a capped monthly amount.</p></article>
-        <article class="eg"><h3>My commitment to you</h3><ul><li>A response within one business day</li><li>Regular status updates, so you're never surprised</li><li>Risks raised as soon as I see them, with a recommended way forward</li><li>Clean handover documentation at the end of every engagement</li></ul></article>
+        <article class="eg"><h3>My commitment to you</h3><ul><li>A response within one business day</li><li>Regular status updates, so you always know where things stand</li><li>Risks raised as soon as I see them, with a recommended way forward</li><li>Clean handover documentation at the end of every engagement</li></ul></article>
       </div>
       <div class="partner">
         <b>A partner who brings me in is my partner on that account.</b>
@@ -679,7 +683,7 @@
     <div class="wrap">
       <div>
         <span class="label">Contact</span>
-        <h2 id="contact-title" style="margin-top:16px">Bring me the <em>hard part</em> of your Dayforce program.</h2>
+        <h2 id="contact-title" style="margin-top:16px">Bring me the <em>most complex part</em> of your Dayforce program.</h2>
         <p class="lead">Tell me about the modules in scope, your timeline and where you need support. Based in Calgary, Mountain Time, working remotely across North America.</p>
         <div class="ctas" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:28px">
           <a class="cta cta-pitaya" href="https://bookings.cloud.microsoft/bookwithme/user/d5d4540600c44e008e704b714929a878@dragonfruittechnologies.com?anonymous&amp;ismsaljsauthenabled&amp;ep=plink" target="_blank" rel="noopener">Book a consultation</a>
