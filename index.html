@@ -333,6 +333,135 @@
   footer.foot .wrap{display:grid;gap:16px;padding-block:32px;font-size:13px;color:var(--muted-night)}
   @media (min-width:900px){footer.foot .wrap{grid-template-columns:auto 1fr auto;align-items:center;gap:32px}}
   footer.foot .tag{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+
+  /* Module explorer: the 20 modules are the seeds of the fruit, set on the golden angle */
+  #depth{overflow-x:clip}
+  .mx{display:grid;gap:36px;align-items:center}
+  @media (min-width:900px){.mx{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:64px}}
+  .mx-fruit{position:relative;width:min(440px,100%);aspect-ratio:1;margin:0 auto;border-radius:50%;background:radial-gradient(closest-side,var(--flesh) calc(100% - 20px),var(--pitaya) calc(100% - 19px))}
+  .mx-fruit::before{content:"";position:absolute;inset:20px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--flesh-line)}
+  .seed{position:absolute;width:38px;height:38px;margin:-19px 0 0 -19px;border:0;padding:0;background:transparent;cursor:pointer;display:grid;place-items:center;border-radius:50%}
+  .seed i{display:block;width:11px;height:17px;border-radius:50%;background:var(--seed);transform:rotate(var(--r)) scale(1);transition:transform .25s,background-color .2s,box-shadow .2s}
+  .seed[data-tier="flame"] i{background:var(--pitaya-deep)}
+  .seed[data-tier="spark"] i{background:var(--bract-ink)}
+  .seed:hover i{transform:rotate(var(--r)) scale(1.4)}
+  .seed.on i{background:var(--pitaya);transform:rotate(var(--r)) scale(1.55);box-shadow:0 0 0 5px rgba(224,17,95,.2)}
+  .seed.inplan i{box-shadow:0 0 0 2px var(--flesh),0 0 0 4px var(--pitaya)}
+  .seed.on.inplan i{box-shadow:0 0 0 5px rgba(224,17,95,.28)}
+  .seed.dim{opacity:.16}
+  .seed::after{content:attr(data-name);position:absolute;bottom:calc(100% - 2px);left:50%;transform:translateX(-50%);white-space:nowrap;font-size:12.5px;font-weight:600;background:var(--seed);color:var(--flesh);padding:4px 9px;border-radius:8px;pointer-events:none;z-index:3;display:none}
+  .seed:hover::after{display:block}
+  .mx-fruit.wait .seed i{transform:rotate(var(--r)) scale(0)}
+  .mx-fruit.grow .seed i{transition:transform .5s cubic-bezier(.2,.9,.3,1.3);transition-delay:calc(var(--k) * 40ms)}
+  .mx-key{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;margin-top:18px;font-size:13.5px;color:var(--muted)}
+  .mx-key span{display:inline-flex;align-items:center;gap:7px}
+  .mx-key i{display:inline-block;width:8px;height:12px;border-radius:50%;background:var(--seed)}
+  .mx-key i.fl{background:var(--pitaya-deep)}.mx-key i.sp{background:var(--bract-ink)}
+  .mx-key i.pl{background:var(--flesh);box-shadow:0 0 0 2px var(--pitaya)}
+  .mx-panel{display:grid;gap:14px;padding:30px 28px;border-radius:24px;background:var(--flesh-2);align-content:start;min-width:0}
+  .mx-tier{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--pitaya-ink)}
+  .mx-panel h3{font-size:clamp(28px,3.2vw,40px)}
+  .mx-area{font-size:14px;color:var(--muted)}
+  .mx-panel .focus{font-size:18px;line-height:1.5;color:var(--seed)}
+  .mx-panel .lvl{font-size:15.5px;color:var(--muted)}
+  .mx-actions{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;margin-top:6px}
+  .cta-line{background:transparent;color:var(--seed);box-shadow:inset 0 0 0 1.5px var(--seed)}
+  .cta-line:hover{box-shadow:inset 0 0 0 1.5px var(--pitaya);color:var(--pitaya-ink)}
+  .cta-line[aria-pressed="true"]{background:var(--seed);color:var(--flesh);box-shadow:none}
+  .mx-count{font-size:14.5px;color:var(--muted)}
+  .mx-count a{color:var(--pitaya-ink);font-weight:600}
+  .mx-list{display:grid;gap:26px;margin-top:48px;padding-top:30px;border-top:1px solid var(--flesh-line)}
+  @media (min-width:760px){.mx-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (min-width:1100px){.mx-list{grid-template-columns:repeat(4,minmax(0,1fr))}}
+  .mx-group h4{font-family:var(--display);font-size:18px;letter-spacing:-.01em;margin:0 0 12px}
+  .mx-chips{display:flex;flex-wrap:wrap;gap:8px}
+  .mxb{font:inherit;font-size:14px;padding:7px 13px;border-radius:999px;border:0;background:var(--flesh-2);color:var(--seed);cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background-color .15s,color .15s,opacity .2s;text-align:left}
+  .mxb .dots i{width:6px;height:6px}
+  .mxb:hover{background:#EBE1D7}
+  .mxb[aria-pressed="true"]{background:var(--seed);color:var(--flesh)}
+  .mxb.dim{opacity:.3}
+  .mxb.inplan::after{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--pitaya)}
+
+  /* Project bench: readiness, timeline, scope */
+  .bench{background:var(--flesh);color:var(--seed);border-radius:28px;overflow:hidden}
+  .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--flesh-line)}
+  .step{font:inherit;border:0;background:transparent;padding:18px 10px 15px;cursor:pointer;display:flex;gap:10px;align-items:center;justify-content:center;font-weight:600;font-size:15px;color:var(--muted);border-bottom:3px solid transparent;transition:color .15s,border-color .2s}
+  .step:hover{color:var(--seed)}
+  .step b{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;box-shadow:inset 0 0 0 1.5px currentColor;font-size:13px;flex:none}
+  .step[aria-selected="true"]{color:var(--seed);border-bottom-color:var(--pitaya)}
+  .step[aria-selected="true"] b{background:var(--pitaya);color:#fff;box-shadow:none}
+  @media (max-width:560px){.step{flex-direction:column;gap:6px;font-size:13.5px}}
+  .pane{padding:32px 20px 36px}
+  @media (min-width:900px){.pane{padding:44px 48px 48px}}
+  .pane[hidden]{display:none}
+  .pane-head{display:grid;gap:8px;max-width:640px;margin-bottom:26px}
+  .pane-head h3{font-size:clamp(26px,3vw,34px)}
+  .pane-head p{color:var(--muted);font-size:16px}
+  .rd{display:grid;gap:36px}
+  @media (min-width:960px){.rd{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px;align-items:start}}
+  .q{border:0;margin:0;padding:18px 0;border-bottom:1px solid var(--flesh-line);min-width:0}
+  .q:first-child{padding-top:0}
+  .q legend{float:left;width:100%;padding:0;font-weight:600;font-size:16.5px;line-height:1.4;margin-bottom:12px}
+  .opts{display:flex;flex-wrap:wrap;gap:8px;clear:both}
+  .opt{position:relative;display:inline-flex}
+  .opt input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+  .opt span{display:inline-block;font-size:14.5px;line-height:1.35;padding:8px 14px;border-radius:999px;background:var(--flesh-2);cursor:pointer;transition:background-color .15s,color .15s}
+  .opt span:hover{background:#EBE1D7}
+  .opt input:checked+span{background:var(--seed);color:var(--flesh)}
+  .opt input:focus-visible+span{outline:2px solid var(--pitaya);outline-offset:2px}
+  .result{display:grid;gap:16px;padding:28px 26px;border-radius:24px;background:var(--night);color:var(--flesh);min-width:0}
+  @media (min-width:960px){.result{position:sticky;top:96px}}
+  .ring-row{display:flex;align-items:center;gap:20px}
+  .ring{position:relative;width:112px;height:112px;flex:none}
+  .ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+  .ring .trk{fill:none;stroke:rgba(251,247,242,.12);stroke-width:10}
+  .ring .val{fill:none;stroke:var(--pitaya);stroke-width:10;stroke-linecap:round;transition:stroke-dashoffset .6s cubic-bezier(.2,.8,.2,1)}
+  .ring b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:30px;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+  .ring b small{font-size:13px;font-weight:500;color:var(--muted-night);margin:8px 0 0 2px}
+  .result h4{font-family:var(--display);font-size:24px;line-height:1.15;letter-spacing:-.02em;margin:0}
+  .result .sub{color:var(--muted-night);font-size:14.5px;margin-top:6px}
+  .result .tips{margin:0;padding:0;list-style:none;display:grid;gap:10px;border-top:1px solid var(--night-line);padding-top:16px}
+  .result .tips li{font-size:15px;line-height:1.5;display:grid;gap:2px}
+  .result .tips span{font-size:12.5px;font-weight:600;color:var(--pitaya-glow)}
+  .tl{display:grid;gap:28px}
+  .tl-form{display:grid;gap:24px}
+  @media (min-width:900px){.tl-form{grid-template-columns:minmax(0,1fr) 260px;gap:32px}}
+  .field{display:grid;gap:8px;border:0;margin:0;padding:0;min-width:0}
+  .field>span,.field legend{font-weight:600;font-size:15px;padding:0}
+  .field legend{float:left;width:100%;margin-bottom:8px}
+  .field .opts{clear:both}
+  .bench input[type="date"],.bench input[type="text"],.bench select,.bench textarea{font:inherit;font-size:16px;padding:11px 14px;border-radius:12px;border:1px solid var(--flesh-line);background:#fff;color:var(--seed);width:100%;min-width:0}
+  .bench textarea{min-height:110px;resize:vertical}
+  .bench input:focus-visible,.bench select:focus-visible,.bench textarea:focus-visible{outline:2px solid var(--pitaya);outline-offset:1px;border-color:transparent}
+  .mods-head{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between}
+  .linkbtn{font:inherit;font-size:14px;font-weight:600;border:0;background:none;padding:0;color:var(--pitaya-ink);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+  .tl-sum{display:flex;flex-wrap:wrap;gap:14px 40px;align-items:end}
+  .tl-sum div{display:grid;gap:4px}
+  .tl-sum b{font-family:var(--display);font-size:clamp(28px,3vw,36px);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+  .tl-sum span{font-size:13.5px;color:var(--muted)}
+  .gantt{display:grid;gap:12px;padding:24px;border-radius:22px;background:var(--flesh-2)}
+  .gr{display:grid;grid-template-columns:150px minmax(0,1fr);gap:14px;align-items:center}
+  @media (max-width:560px){.gr{grid-template-columns:1fr;gap:6px}}
+  .gr b{font-size:15px;display:block}
+  .gr small{display:block;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .track{position:relative;height:14px;border-radius:999px;background:var(--flesh)}
+  .bar{position:absolute;top:0;bottom:0;border-radius:999px;background:var(--seed);transition:left .45s cubic-bezier(.2,.8,.2,1),width .45s cubic-bezier(.2,.8,.2,1)}
+  .gr.live .bar{background:var(--pitaya)}
+  .gr.after .bar{background:var(--bract-ink)}
+  .gantt .golive{font-size:13.5px;color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .gantt .golive i{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--pitaya)}
+  .notice{padding:14px 18px;border-radius:14px;background:#FBE3EC;color:var(--pitaya-deep);font-size:15px;line-height:1.5}
+  .fine{font-size:13.5px;color:var(--muted);line-height:1.55}
+  .empty{padding:28px;border-radius:22px;background:var(--flesh-2);text-align:center;color:var(--muted)}
+  .sc{display:grid;gap:32px}
+  @media (min-width:960px){.sc{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:48px;align-items:start}}
+  .sc-form{display:grid;gap:18px}
+  @media (min-width:560px){.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}}
+  .two{display:grid;gap:18px}
+  .sheet{white-space:pre-wrap;font-family:var(--mono);font-size:13.5px;line-height:1.75;padding:26px;border-radius:20px;background:var(--night);color:var(--flesh);margin:0;overflow-wrap:anywhere}
+  .sc-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:16px}
+  .pane-foot{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;margin-top:32px;padding-top:24px;border-top:1px solid var(--flesh-line)}
+  .bench-note{margin-top:20px;font-size:14px;color:var(--muted-night);max-width:70ch}
 </style>
 </head>
 <body>
@@ -347,6 +476,7 @@
       <a href="#services">Services</a>
       <a href="#work">Work</a>
       <a href="#depth">Module depth</a>
+      <a href="#plan">Plan a project</a>
       <a href="#engage">Work with me</a>
     </nav>
     <div class="head-actions">
@@ -360,6 +490,7 @@
           <a href="#work">Work</a>
           <a href="#depth">Module depth</a>
           <a href="#approach">Approach</a>
+          <a href="#plan">Plan a project</a>
           <a href="#founder">Founder</a>
           <a href="#engage">Work with me</a>
           <a href="#contact">Contact</a>
@@ -378,7 +509,7 @@
       <p class="lead">Benefits, Core HR and the full Talent suite, plus data and testing, delivered by someone who has worked Dayforce inside the vendor, at its closest competitor, on a large public-sector transformation, and in HR itself. One accountable person behind all four views.</p>
       <div class="ctas">
         <a class="cta cta-pitaya" href="#contact">Discuss a Dayforce project</a>
-        <a class="cta cta-ghost" href="#work">See the public-sector work</a>
+        <a class="cta cta-ghost" href="#plan">Plan your Dayforce project</a>
       </div>
       <a class="byline" href="#founder" style="text-decoration:none;color:inherit">
         <span class="avatar" aria-hidden="true">DN<img src="assets/devvrat-nair-taupe.jpeg" alt="" onerror="this.remove()"></span>
@@ -523,7 +654,7 @@
         <header class="sec-head" style="margin-bottom:0">
           <span class="label">Module depth</span>
           <h2 id="depth-title">20 Dayforce modules, rated honestly.</h2>
-          <p>A self-assessment, so a partner can match me to a requirement precisely, including the two areas I am actively growing.</p>
+          <p>A self-assessment, so a partner can match me to a requirement precisely. Choose a seed or a module name to see what the module covers and how deep I go, then add it to your project plan.</p>
         </header>
         <div class="legend" role="group" aria-label="Highlight a level">
           <button type="button" class="tier-btn" data-tier="all" aria-pressed="true">All</button>
@@ -532,20 +663,22 @@
           <button type="button" class="tier-btn" data-tier="spark" aria-pressed="false"><span class="dots"><i></i><i class="o"></i><i class="o"></i></span>Spark · WFM</button>
         </div>
       </div>
-      <div class="tiers">
-        <section class="tier t-fire" data-tier="fire" aria-labelledby="t1">
-          <header><h3 id="t1"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>Dragonfire · 18 modules</h3><p>Designs, configures and leads independently; advises on best practice.</p></header>
-          <ul><li>Core HR</li><li>Benefits Administration</li><li>Recruitment</li><li>Onboarding</li><li>Learning</li><li>Performance Management</li><li>Compensation Management</li><li>Succession Planning</li><li>Career Explorer</li><li>Engagement</li><li>Employee Experience Hub</li><li>Position Management</li><li>Org Design</li><li>Document &amp; Letter Management</li><li>HR Service Delivery</li><li>Security, Roles &amp; Identity</li><li>Imports</li><li>People Analytics</li></ul>
-        </section>
-        <section class="tier" data-tier="flame" aria-labelledby="t2">
-          <header><h3 id="t2"><span class="dots" aria-hidden="true"><i></i><i></i><i class="o"></i></span>Flame</h3><p>Confident to deliver; sharpening through hands-on practice and self-paced training.</p></header>
-          <ul><li>Payroll</li></ul>
-        </section>
-        <section class="tier" data-tier="spark" aria-labelledby="t3">
-          <header><h3 id="t3"><span class="dots" aria-hidden="true"><i></i><i class="o"></i><i class="o"></i></span>Spark</h3><p>Foundational knowledge; actively learning the full module.</p></header>
-          <ul><li>Workforce Management</li></ul>
-        </section>
+      <div class="mx" id="mx" hidden>
+        <div>
+          <div class="mx-fruit" id="mxFruit" aria-hidden="true"></div>
+          <div class="mx-key" aria-hidden="true"><span><i></i>Dragonfire</span><span><i class="fl"></i>Flame</span><span><i class="sp"></i>Spark</span><span><i class="pl"></i>In your plan</span></div>
+        </div>
+        <div class="mx-panel" id="mxPanel" aria-live="polite"></div>
       </div>
+      <div class="mx-list" id="mxList" hidden></div>
+      <noscript>
+        <div class="tiers">
+          <section class="tier t-fire"><header><h3>Dragonfire · 18 modules</h3><p>Designs, configures and leads independently; advises on best practice.</p></header>
+          <ul><li>Core HR</li><li>Benefits Administration</li><li>Recruitment</li><li>Onboarding</li><li>Learning</li><li>Performance Management</li><li>Compensation Management</li><li>Succession Planning</li><li>Career Explorer</li><li>Engagement</li><li>Employee Experience Hub</li><li>Position Management</li><li>Org Design</li><li>Document &amp; Letter Management</li><li>HR Service Delivery</li><li>Security, Roles &amp; Identity</li><li>Imports</li><li>People Analytics</li></ul></section>
+          <section class="tier"><header><h3>Flame</h3><p>Confident to deliver; sharpening through hands-on practice and self-paced training.</p></header><ul><li>Payroll</li></ul></section>
+          <section class="tier"><header><h3>Spark</h3><p>Foundational knowledge; actively learning the full module.</p></header><ul><li>Workforce Management</li></ul></section>
+        </div>
+      </noscript>
       <p class="depth-note">Self-assessed, and always confirmed against your requirements before an engagement begins.</p>
     </div>
   </section>
@@ -568,6 +701,99 @@
         <span class="label">Throughout every phase</span>
         <ul><li>Founder-led delivery</li><li>Risks raised early, with a recommended way forward</li><li>Regular status updates</li><li>Every decision documented</li></ul>
       </div>
+    </div>
+  </section>
+
+  <section class="sec night band" id="plan" aria-labelledby="plan-title">
+    <div class="wrap">
+      <header class="sec-head">
+        <span class="label">Plan a project</span>
+        <h2 id="plan-title">Plan your Dayforce project in a few minutes.</h2>
+        <p>Check how ready you are, sketch a timeline and send me a one-page scope. Everything stays in your browser. Nothing is saved, and nothing is sent until you choose to send it.</p>
+      </header>
+      <noscript><p class="bench-note">This planner needs JavaScript. You can still <a href="#contact" style="color:inherit">contact me directly</a>.</p></noscript>
+      <div class="bench" id="bench" hidden>
+        <div class="steps" role="tablist" aria-label="Project planner">
+          <button type="button" class="step" role="tab" id="tab-ready" aria-controls="pane-ready" aria-selected="true"><b>1</b><span>Readiness</span></button>
+          <button type="button" class="step" role="tab" id="tab-time" aria-controls="pane-time" aria-selected="false" tabindex="-1"><b>2</b><span>Timeline</span></button>
+          <button type="button" class="step" role="tab" id="tab-scope" aria-controls="pane-scope" aria-selected="false" tabindex="-1"><b>3</b><span>Scope</span></button>
+        </div>
+
+        <div class="pane" role="tabpanel" id="pane-ready" aria-labelledby="tab-ready">
+          <div class="pane-head">
+            <h3>How ready is your organization?</h3>
+            <p>Eight questions about the foundations every Dayforce project rests on. Your score and next steps update as you answer.</p>
+          </div>
+          <div class="rd">
+            <div id="qs"></div>
+            <aside class="result" aria-live="polite">
+              <div class="ring-row">
+                <div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="trk" cx="60" cy="60" r="50"/><circle class="val" id="ringVal" cx="60" cy="60" r="50" stroke-dasharray="314.16" stroke-dashoffset="314.16"/></svg><b><span id="score">0</span><small>/16</small></b></div>
+                <div><h4 id="band">Answer to see your score</h4><p class="sub" id="answered">0 of 8 answered</p></div>
+              </div>
+              <p class="sub" id="bandText" style="margin:0">Each answer adds up to 2 points.</p>
+              <ul class="tips" id="tips"></ul>
+            </aside>
+          </div>
+          <div class="pane-foot"><span class="fine">A planning aid, not an audit. Discovery confirms the detail.</span><button type="button" class="cta cta-ink" data-go="tab-time">Next: build a timeline</button></div>
+        </div>
+
+        <div class="pane" role="tabpanel" id="pane-time" aria-labelledby="tab-time" hidden>
+          <div class="pane-head">
+            <h3>Sketch a timeline back from your go-live date.</h3>
+            <p>Choose the project type, the modules in scope and a target go-live. The plan works backwards through the six delivery phases.</p>
+          </div>
+          <div class="tl">
+            <div class="tl-form">
+              <fieldset class="field"><legend>Project type</legend>
+                <div class="opts" id="ptype">
+                  <label class="opt"><input type="radio" name="ptype" value="new" checked><span>New Dayforce implementation</span></label>
+                  <label class="opt"><input type="radio" name="ptype" value="add"><span>Adding modules to Dayforce</span></label>
+                  <label class="opt"><input type="radio" name="ptype" value="opt"><span>Optimizing an existing system</span></label>
+                </div>
+              </fieldset>
+              <label class="field"><span>Target go-live</span><input type="date" id="golive"></label>
+            </div>
+            <fieldset class="field">
+              <legend><span class="mods-head"><span>Modules in scope · <span id="modCount">0 chosen</span></span></span></legend>
+              <div class="opts" id="mods"></div>
+              <div style="margin-top:10px"><button type="button" class="linkbtn" id="clearMods">Clear all modules</button></div>
+            </fieldset>
+            <div id="tlOut" aria-live="polite"></div>
+          </div>
+          <div class="pane-foot"><span class="fine">Indicative planning only. Every plan is confirmed in discovery against your scope, data and team.</span><button type="button" class="cta cta-ink" data-go="tab-scope">Next: build your scope</button></div>
+        </div>
+
+        <div class="pane" role="tabpanel" id="pane-scope" aria-labelledby="tab-scope" hidden>
+          <div class="pane-head">
+            <h3>Your one-page scope, ready to send.</h3>
+            <p>Add a few details. The summary uses your readiness answers and timeline, and you can edit everything before you send it.</p>
+          </div>
+          <div class="sc">
+            <form class="sc-form" id="scForm" onsubmit="return false">
+              <div class="two">
+                <label class="field"><span>Your name</span><input type="text" id="fName" autocomplete="name"></label>
+                <label class="field"><span>Organization</span><input type="text" id="fOrg" autocomplete="organization"></label>
+              </div>
+              <div class="two">
+                <label class="field"><span>Your role</span><select id="fRole"><option value="">Choose one</option><option>HR or Payroll leader</option><option>Consulting firm or systems integrator</option><option>Staffing partner</option><option>Project or program manager</option><option>Other</option></select></label>
+                <label class="field"><span>How you would like to work</span><select id="fHow"><option value="">Choose one</option><option>Direct engagement</option><option>Subcontract through a partner</option><option>Staffing placement</option><option>Not sure yet</option></select></label>
+              </div>
+              <label class="field"><span>Where do you need the most help?</span><textarea id="fNotes" placeholder="For example: offer approvals that follow delegated authority, or data conversion from two legacy systems."></textarea></label>
+            </form>
+            <div>
+              <pre class="sheet" id="sheet" aria-live="polite"></pre>
+              <div class="sc-actions">
+                <a class="cta cta-pitaya" id="sendMail" href="mailto:devvrat.nair@dragonfruittechnologies.com">Email this scope</a>
+                <button type="button" class="cta cta-line" id="copyScope">Copy scope</button>
+                <a class="cta cta-line" href="https://calendly.com/devvrat-nair-dragonfruittechnologies/20min" target="_blank" rel="noopener">Book a 20-minute call</a>
+              </div>
+              <p class="fine" id="scopeMsg" aria-live="polite" style="margin-top:12px">Email this scope opens your own email app with the summary filled in. Nothing is sent until you press Send there.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="bench-note">This planner sets no cookies and stores nothing. When you leave the page, your answers are gone.</p>
     </div>
   </section>
 
@@ -741,11 +967,177 @@
     size(); if(reduce){draw(1);}else{draw(.12);requestAnimationFrame(tick);}
     var to;window.addEventListener('resize',function(){clearTimeout(to);to=setTimeout(function(){size();draw(1);},120);});
   }
-  /* Module depth highlight */
-  var btns=document.querySelectorAll('.tier-btn'),tiers=document.querySelectorAll('.tier');
-  btns.forEach(function(b){b.addEventListener('click',function(){var t=b.getAttribute('data-tier');
-    btns.forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
-    tiers.forEach(function(s){s.classList.toggle('dim',t!=='all'&&s.getAttribute('data-tier')!==t);});});});
+  /* ---------- Module explorer + project planner ---------- */
+  var MODS=[
+    ['corehr','Core HR','Foundation','fire','Employee records, effective-dated changes and work assignments: the data every other module reads.'],
+    ['position','Position Management','Foundation','fire','Positions, budgets and vacancies, so hiring and org changes start from an approved seat.'],
+    ['org','Org Design','Foundation','fire','Org units and reporting lines modelled to match how the business really runs.'],
+    ['security','Security, Roles & Identity','Foundation','fire','Role-based access designed for least privilege and need-to-know access, with clean access reviews.'],
+    ['imports','Imports','Foundation','fire','Data conversion and ongoing imports, staged and validated before every load.'],
+    ['docs','Document & Letter Management','Foundation','fire','Offer letters and employee documents built from templates, with the right approvals.'],
+    ['recruit','Recruitment','Talent','fire','Requisitions, candidate pipelines, priority rules and offer approvals through to hire.'],
+    ['onboard','Onboarding','Talent','fire','Tasks, forms and documents that take a new hire from accepted offer to day one.'],
+    ['learning','Learning','Talent','fire','Courses, assignments and completions, linked to roles and to onboarding.'],
+    ['perf','Performance Management','Talent','fire','Goals, reviews and cycles that managers can run without workarounds.'],
+    ['comp','Compensation Management','Talent','fire','Merit and bonus cycles, budgets and guidelines, with approvals that follow authority.'],
+    ['succession','Succession Planning','Talent','fire','Critical roles, talent pools and readiness, visible to the leaders who decide.'],
+    ['career','Career Explorer','Talent','fire','Career paths and role requirements that employees can explore for themselves.'],
+    ['engage','Engagement','Experience and insight','fire','Employee surveys and pulse checks, with results that leaders can act on.'],
+    ['hub','Employee Experience Hub','Experience and insight','fire','One front door for employees: tasks, news and self-service in one place.'],
+    ['hrsd','HR Service Delivery','Experience and insight','fire','HR cases and knowledge articles, routed to the right team with clear service levels.'],
+    ['analytics','People Analytics','Experience and insight','fire','Reports and dashboards built on clean data and clear definitions.'],
+    ['benefits','Benefits Administration','Pay, benefits and time','fire','Plans, eligibility, enrolment events and carrier feeds that stay accurate.'],
+    ['payroll','Payroll','Pay, benefits and time','flame','Pay policies, earnings and deductions, parallel runs and reconciliation.'],
+    ['wfm','Workforce Management','Pay, benefits and time','spark','Schedules, time capture and the pay rules that turn hours into pay.']
+  ];
+  var TIER={fire:{n:'Dragonfire',d:3,t:'I design, configure and lead this module independently, and advise on best practice.'},
+            flame:{n:'Flame',d:2,t:'Confident to deliver. I am sharpening it through hands-on practice and training.'},
+            spark:{n:'Spark',d:1,t:'Foundational knowledge. I am actively building out the full module.'}};
+  var byId={};MODS.forEach(function(m){byId[m[0]]=m;});
+  var plan=[],current='corehr',tierFilter='all';
+  function inPlan(id){return plan.indexOf(id)>-1;}
+  function togglePlan(id,on){var i=plan.indexOf(id);if(on===undefined)on=i<0;if(on&&i<0)plan.push(id);if(!on&&i>-1)plan.splice(i,1);sync();}
+  function dots(n){var h='<span class="dots" aria-hidden="true">';for(var i=0;i<3;i++)h+='<i'+(i>=n?' class="o"':'')+'></i>';return h+'</span>';}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  var mx=document.getElementById('mx'),fruit=document.getElementById('mxFruit'),panel=document.getElementById('mxPanel'),list=document.getElementById('mxList');
+  var GA=Math.PI*(3-Math.sqrt(5));
+  if(mx){
+    mx.hidden=false;list.hidden=false;
+    MODS.forEach(function(m,k){var q=(k+.5)/MODS.length,rad=40*Math.sqrt(q),a=(k+.5)*GA+.6;
+      var b=document.createElement('button');b.type='button';b.className='seed';b.tabIndex=-1;b.setAttribute('data-id',m[0]);b.setAttribute('data-tier',m[3]);b.setAttribute('data-name',m[1]);
+      b.style.left=(50+rad*Math.cos(a))+'%';b.style.top=(50+rad*Math.sin(a))+'%';
+      b.style.setProperty('--r',(a*180/Math.PI+90).toFixed(1)+'deg');b.style.setProperty('--k',k);
+      b.innerHTML='<i></i>';b.addEventListener('click',function(){show(m[0]);});fruit.appendChild(b);});
+    var groups={};MODS.forEach(function(m){(groups[m[2]]=groups[m[2]]||[]).push(m);});
+    Object.keys(groups).forEach(function(g){var d=document.createElement('div');d.className='mx-group';
+      d.innerHTML='<h4>'+esc(g)+'</h4><div class="mx-chips"></div>';var c=d.querySelector('.mx-chips');
+      groups[g].forEach(function(m){var b=document.createElement('button');b.type='button';b.className='mxb';b.setAttribute('data-id',m[0]);b.setAttribute('data-tier',m[3]);b.setAttribute('aria-pressed','false');
+        b.innerHTML=dots(TIER[m[3]].d)+'<span>'+esc(m[1])+'</span>';b.addEventListener('click',function(){show(m[0]);if(window.innerWidth<900)panel.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});});c.appendChild(b);});
+      list.appendChild(d);});
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduce&&'IntersectionObserver' in window){fruit.classList.add('wait');
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fruit.classList.add('grow');requestAnimationFrame(function(){fruit.classList.remove('wait');});io.disconnect();}});},{threshold:.35});io.observe(fruit);}
+  }
+  function show(id){current=id;var m=byId[id],t=TIER[m[3]],on=inPlan(id);
+    panel.innerHTML='<div class="mx-tier">'+dots(t.d)+t.n+'</div><h3>'+esc(m[1])+'</h3><span class="mx-area">'+esc(m[2])+'</span><p class="focus">'+esc(m[4])+'</p><p class="lvl">'+t.t+'</p>'+
+      '<div class="mx-actions"><button type="button" class="cta cta-line" id="mxAdd" aria-pressed="'+on+'">'+(on?'In your plan':'Add to project plan')+'</button><span class="mx-count" id="mxCount"></span></div>';
+    document.getElementById('mxAdd').addEventListener('click',function(){togglePlan(id);var b=document.getElementById('mxAdd');if(b)b.focus();});
+    sync();}
+  /* tier highlight */
+  var tbtns=document.querySelectorAll('.tier-btn');
+  tbtns.forEach(function(b){b.addEventListener('click',function(){tierFilter=b.getAttribute('data-tier');tbtns.forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});sync();});});
+
+  /* readiness */
+  var QS=[
+    ['Is there an executive sponsor who can make design decisions?',['Yes, named and available','Named, with limited time','Not yet named'],'Discover','Name a sponsor and a decision path early, so design decisions close in days, not weeks.'],
+    ['Are your HR, pay and approval policies written down?',['Yes, current and complete','Partly','Not yet'],'Discover','Collect policies and approval authority first. They become the rules your design follows.'],
+    ['How clean is the employee data you will move?',['Clean, one source of truth','Mostly clean, some gaps','Not yet known'],'Build','Profile and stage your data before Build, with validation rules agreed up front.'],
+    ['Is your organization and position structure defined?',['Yes, approved and current','Partly','Not yet'],'Design','Agree the org and position model in Design. Every module reads from it.'],
+    ['Do you know every system Dayforce must connect to?',['Yes, with owners','Most of them','Not yet'],'Discover','List every integration with its owner and file format during Discover.'],
+    ['Will your team have time for the project?',['Yes, time set aside','Some, alongside daily work','Not planned yet'],'Discover','Protect time for your subject-matter experts and the people who will run the system.'],
+    ['Who will test the system before go-live?',['Named testers and a plan','Testers, no plan yet','Not decided'],'Test','Name your testers early and write scenarios from real cases, exceptions included.'],
+    ['How will employees and managers learn the new system?',['Training and change plan ready','Ideas, no plan yet','Not planned yet'],'Deploy','Plan training by role, and a clear go-live message for every audience.']
+  ];
+  var BANDS=[[13,'Ready to design','Strong foundations. You can move into discovery and design with confidence.'],
+             [8,'Ready with focused preparation','Good foundations. A few focused steps now will save weeks later.'],
+             [0,'Build the foundations first','A short readiness phase is the best next step. It sets the whole project up to succeed.']];
+  var answers={},qsEl=document.getElementById('qs');
+  if(qsEl){QS.forEach(function(q,i){var f=document.createElement('fieldset');f.className='q';
+      var h='<legend>'+(i+1)+'. '+esc(q[0])+'</legend><div class="opts">';
+      q[1].forEach(function(o,j){h+='<label class="opt"><input type="radio" name="q'+i+'" value="'+(2-j)+'"><span>'+esc(o)+'</span></label>';});
+      f.innerHTML=h+'</div>';qsEl.appendChild(f);});
+    qsEl.addEventListener('change',function(e){var n=e.target.name;if(n&&n.charAt(0)==='q'){answers[+n.slice(1)]=+e.target.value;renderReady();sync();}});}
+  function readiness(){var s=0,n=0;for(var k in answers){s+=answers[k];n++;}var b=null;if(n===QS.length){for(var i=0;i<BANDS.length;i++)if(s>=BANDS[i][0]){b=BANDS[i];break;}}return{s:s,n:n,b:b};}
+  function renderReady(){var r=readiness();document.getElementById('score').textContent=r.s;
+    document.getElementById('ringVal').style.strokeDashoffset=(314.16*(1-r.s/16)).toFixed(2);
+    document.getElementById('answered').textContent=r.n+' of '+QS.length+' answered';
+    document.getElementById('band').textContent=r.b?r.b[1]:(r.n?'Keep going':'Answer to see your score');
+    document.getElementById('bandText').textContent=r.b?r.b[2]:'Your next steps appear here as you answer.';
+    var tips=document.getElementById('tips'),h='';
+    QS.forEach(function(q,i){if(answers[i]!==undefined&&answers[i]<2)h+='<li><span>'+q[2]+'</span>'+esc(q[3])+'</li>';});
+    if(r.b&&!h)h='<li><span>Next step</span>Book a discovery call to confirm scope, timeline and team.</li>';
+    tips.innerHTML=h;}
+
+  /* timeline */
+  var modsEl=document.getElementById('mods'),golive=document.getElementById('golive'),tlOut=document.getElementById('tlOut');
+  if(modsEl){MODS.forEach(function(m){var l=document.createElement('label');l.className='opt';
+      l.innerHTML='<input type="checkbox" value="'+m[0]+'"><span>'+esc(m[1])+'</span>';modsEl.appendChild(l);});
+    modsEl.addEventListener('change',function(e){togglePlan(e.target.value,e.target.checked);});
+    document.getElementById('clearMods').addEventListener('click',function(){plan.length=0;sync();});
+    var d=new Date();d.setMonth(d.getMonth()+9);d.setDate(1);golive.value=iso(d);
+    golive.addEventListener('change',sync);
+    document.getElementById('ptype').addEventListener('change',sync);}
+  function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+  function fmt(d){return d.toLocaleDateString('en-CA',{month:'short',day:'numeric',year:'numeric'});}
+  function addWeeks(d,w){var x=new Date(d.getTime());x.setDate(x.getDate()+Math.round(w*7));return x;}
+  var PTYPE={new:'New Dayforce implementation',add:'Adding modules to Dayforce',opt:'Optimizing an existing Dayforce system'};
+  function ptype(){var c=document.querySelector('input[name="ptype"]:checked');return c?c.value:'new';}
+  function timeline(){var n=plan.length,t=ptype();if(!n)return null;var W,S;
+    if(t==='new'){W=Math.min(52,Math.max(20,16+2*n));S=6;}else if(t==='add'){W=Math.min(36,Math.max(8,8+2*n));S=4;}else{W=Math.min(20,Math.max(6,6+n));S=2;}
+    if(t!=='opt'){if(inPlan('payroll'))W+=6;if(inPlan('wfm'))W+=4;}
+    var gl=golive&&golive.value?new Date(golive.value+'T12:00:00'):null;if(!gl||isNaN(gl))return{err:'date'};
+    var P=[['Discover',.12],['Design',.20],['Build',.30],['Test',.26],['Deploy',.12]],acc=0,prev=0,rows=[];
+    P.forEach(function(p){acc+=p[1];var end=Math.round(W*acc);rows.push({n:p[0],a:prev,b:end});prev=end;});
+    rows.push({n:'Stabilize',a:W,b:W+S,after:true});
+    var start=addWeeks(gl,-W),today=new Date();today.setHours(0,0,0,0);
+    var short=start<today?Math.ceil((today-start)/(7*864e5)):0;
+    return{W:W,S:S,gl:gl,start:start,rows:rows,short:short,t:t};}
+  function renderTimeline(){if(!tlOut)return;var T=timeline();
+    document.getElementById('modCount').textContent=plan.length+(plan.length===1?' module chosen':' modules chosen');
+    if(!T){tlOut.innerHTML='<div class="empty">Choose at least one module above, or add modules from the explorer, to see your timeline.</div>';return;}
+    if(T.err){tlOut.innerHTML='<div class="empty">Choose a target go-live date to see your timeline.</div>';return;}
+    var span=T.W+T.S,h='<div class="tl-sum"><div><b>'+T.W+' weeks</b><span>to go-live, indicative</span></div><div><b>'+fmt(T.start)+'</b><span>suggested start</span></div><div><b>'+fmt(T.gl)+'</b><span>target go-live</span></div></div>';
+    if(T.short)h+='<p class="notice">This go-live date leaves about '+T.short+' fewer weeks than this scope usually needs. Choose a later date, or go live with fewer modules first and add the rest in a second phase.</p>';
+    h+='<div class="gantt" role="img" aria-label="Indicative timeline of six phases from '+fmt(T.start)+' to '+fmt(addWeeks(T.gl,T.S))+'">';
+    T.rows.forEach(function(r){var a=addWeeks(T.start,r.a),b=addWeeks(T.start,r.b),w=r.b-r.a;
+      h+='<div class="gr'+(r.n==='Deploy'?' live':'')+(r.after?' after':'')+'" aria-hidden="true"><div><b>'+r.n+'</b><small>'+fmt(a)+' · '+w+' wk</small></div><div class="track"><span class="bar" style="left:'+(r.a/span*100).toFixed(2)+'%;width:'+Math.max(1.5,w/span*100).toFixed(2)+'%"></span></div></div>';});
+    h+='<p class="golive"><i></i>Go-live on '+fmt(T.gl)+', followed by '+T.S+' weeks of stabilization and hypercare.</p></div>';
+    var extra=[];if(T.t!=='opt'&&inPlan('payroll'))extra.push('Payroll parallel runs');if(T.t!=='opt'&&inPlan('wfm'))extra.push('Workforce Management pay rules');
+    h+='<p class="fine">'+esc(PTYPE[T.t])+', '+plan.length+' module'+(plan.length===1?'':'s')+(extra.length?'. Includes extra time for '+extra.join(' and '):'')+'. Indicative only: real timelines depend on data, integrations and team capacity.</p>';
+    tlOut.innerHTML=h;}
+
+  /* scope */
+  var sheet=document.getElementById('sheet'),sendMail=document.getElementById('sendMail');
+  ['fName','fOrg','fRole','fHow','fNotes'].forEach(function(id){var el=document.getElementById(id);if(el)el.addEventListener('input',renderScope);if(el)el.addEventListener('change',renderScope);});
+  function val(id){var el=document.getElementById(id);return el?el.value.trim():'';}
+  function scopeText(){var r=readiness(),T=timeline(),L=[];
+    L.push('DAYFORCE PROJECT SCOPE');L.push('');
+    if(val('fName'))L.push('Name: '+val('fName'));
+    if(val('fOrg'))L.push('Organization: '+val('fOrg'));
+    if(val('fRole'))L.push('Role: '+val('fRole'));
+    if(val('fHow'))L.push('Engagement: '+val('fHow'));
+    L.push('Project type: '+PTYPE[ptype()]);
+    L.push('Modules ('+plan.length+'): '+(plan.length?plan.map(function(id){return byId[id][1];}).join(', '):'not chosen yet'));
+    if(T&&!T.err){L.push('Target go-live: '+fmt(T.gl));L.push('Indicative plan: about '+T.W+' weeks, starting around '+fmt(T.start));}
+    L.push('Readiness: '+(r.n?r.s+'/16'+(r.b?' ('+r.b[1]+')':', '+r.n+' of 8 answered'):'not checked yet'));
+    if(val('fNotes')){L.push('');L.push('Where I need help:');L.push(val('fNotes'));}
+    return L.join('\n');}
+  function renderScope(){if(!sheet)return;var t=scopeText();sheet.textContent=t;
+    var subj='Dayforce project scope'+(val('fOrg')?' · '+val('fOrg'):'');
+    sendMail.href='mailto:devvrat.nair@dragonfruittechnologies.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(t);}
+  var cs=document.getElementById('copyScope'),sm=document.getElementById('scopeMsg');
+  if(cs)cs.addEventListener('click',function(){var t=scopeText();function fb(){var rg=document.createRange();rg.selectNodeContents(sheet);var s=getSelection();s.removeAllRanges();s.addRange(rg);sm.textContent='Scope selected. Press Ctrl+C or ⌘C to copy.';}
+    try{navigator.clipboard.writeText(t).then(function(){sm.textContent='Scope copied. Paste it into an email or message.';},fb);}catch(e){fb();}});
+
+  /* tabs */
+  var bench=document.getElementById('bench');
+  if(bench){bench.hidden=false;var tabs=[].slice.call(bench.querySelectorAll('[role="tab"]'));
+    function openTab(tab,focus){tabs.forEach(function(t){var on=t===tab;t.setAttribute('aria-selected',String(on));t.tabIndex=on?0:-1;document.getElementById(t.getAttribute('aria-controls')).hidden=!on;});if(focus)tab.focus();}
+    tabs.forEach(function(t,i){t.addEventListener('click',function(){openTab(t);});
+      t.addEventListener('keydown',function(e){var k=e.key,j=k==='ArrowRight'?i+1:k==='ArrowLeft'?i-1:k==='Home'?0:k==='End'?tabs.length-1:null;if(j===null)return;e.preventDefault();openTab(tabs[(j+tabs.length)%tabs.length],true);});});
+    bench.querySelectorAll('[data-go]').forEach(function(b){b.addEventListener('click',function(){var t=document.getElementById(b.getAttribute('data-go'));openTab(t,true);bench.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});});});}
+
+  /* one sync for every view */
+  function sync(){
+    document.querySelectorAll('.seed,.mxb').forEach(function(el){var id=el.getAttribute('data-id'),tier=el.getAttribute('data-tier');
+      el.classList.toggle('on',id===current&&el.classList.contains('seed'));if(el.classList.contains('mxb'))el.setAttribute('aria-pressed',String(id===current));
+      el.classList.toggle('inplan',inPlan(id));el.classList.toggle('dim',tierFilter!=='all'&&tier!==tierFilter);});
+    var add=document.getElementById('mxAdd');if(add){var on=inPlan(current);add.setAttribute('aria-pressed',String(on));add.textContent=on?'In your plan':'Add to project plan';}
+    var cnt=document.getElementById('mxCount');if(cnt)cnt.innerHTML=plan.length?plan.length+' in your plan · <a href="#plan">Open the planner</a>':'';
+    if(modsEl)modsEl.querySelectorAll('input').forEach(function(i){i.checked=inPlan(i.value);});
+    renderTimeline();renderScope();}
+  if(mx)show(current);else sync();
+  renderReady();
   /* Copy email */
   var cp=document.getElementById('copy'),out=document.getElementById('copied'),mail=document.getElementById('mail');
   if(cp)cp.addEventListener('click',function(){var t=mail.textContent.trim();function fb(){var r=document.createRange();r.selectNodeContents(mail);var s=getSelection();s.removeAllRanges();s.addRange(r);out.textContent='Selected. Press Ctrl+C or ⌘C to copy.';}
